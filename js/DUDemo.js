@@ -51,5 +51,5 @@ const itemSelector = (button) => {
 const setItem = (itemType, item) => {
     item++;
     document.getElementById(itemType).style.background = (`${itemType}%${item}`);
-    console.log(itemType, item)
+    console.log(itemType, item);
 }
