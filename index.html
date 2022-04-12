@@ -16,13 +16,17 @@
             <div id="bottom"></div>
             <div id="feet"></div>
         </div>
-        <table>
-            <input type="button" value="Gender" id="next-gender" onclick="nextGender()">
-            <input type="button" value="Head" id="next-head" onclick="nextHead()">
-            <input type="button" value="Top" id="next-top" onclick="nextTop()">
-            <input type="button" value="Bottom" id="next-bottom" onclick="nextBottom()">
-            <input type="button" value="Feet" id="next-feet" onclick="nextGender()">
-        </table>
+        <form>
+            <input type="button" value="Gender" id="gender" onclick="itemSelector(this)">
+            <input type="button" value="Head" id="next-head" onclick="itemSelector(this)">
+            <input type="button" value="Head" id="prev-head" onclick="itemSelector(this)">
+            <input type="button" value="Top" id="next-top" onclick="itemSelector(this)">
+            <input type="button" value="Top" id="prev-top">
+            <input type="button" value="Bottom" id="next-bottom">
+            <input type="button" value="Bottom" id="prev-bottom">
+            <input type="button" value="Feet" id="next-feet">
+            <input type="button" value="Feet" id="prev-feet">
+        </form>
     </div>
     <script src="js/DUDemo.js"></script>
 </body>

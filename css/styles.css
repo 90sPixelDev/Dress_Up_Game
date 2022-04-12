@@ -33,9 +33,10 @@ body {
 }
 
 /* Button Styles */
-#next-gender, #next-head, #next-top, #next-bottom, #next-feet{
+#gender, #next-head, #next-top, #next-bottom, #next-feet{
     position: relative;
-    width: fit-content;
+    left: 7em;
+    width: 6em;
     height: 25px;
     padding: 0  2em 0 0.3em;
     text-align: left;
@@ -47,20 +48,107 @@ body {
     background-repeat: no-repeat;
     border: 0;
 }
-#next-gender:hover, #next-head:hover, #next-top:hover, #next-bottom:hover, #next-feet:hover {
+#prev-head, #prev-top, #prev-bottom, #prev-feet{
+    position: relative;
+    width: 6em;
+    height: 25px;
+    padding: 0  0.3em 0 2em;
+    text-align: right;
+    color: white;
+
+    background: url("../img/test/prev-btn.png");
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: 0;
+}
+
+/* When hovering over the buttons! */
+#gender:hover, #next-head:hover, #prev-head:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-feet:hover, #prev-feet:hover{
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
 }
 
-/* Button Positions */
+/* The clothes to overite the character */
+#chara-gender {
+    background: url();
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#head {
+    background: url("../img/head/head_01.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#top {
+    background: url("../img/top/top_01.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#bottom {
+    background: url("../img/bottom/bottom_01.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#feet {
+    background: url("../img/feet/feet_01.png");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
 
-table {
+
+/* Button Position Set Up */
+form {
     position: absolute;
     display: grid;
     width: 100%;
     height: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+    "logo logo logo"
+    "head-left head head-right"
+    "top-left top top-right"
+    "gender blank blank"
+    "bottom-left bottom bottom-right"
+    "feet-left feet feet-right"
 }
-#next-gender {
-    
+
+/* Positions of the buttons on the grid */
+#gender {
+    grid-area: gender;
+    justify-self: left;
+}
+#next-head {
+    grid-area: head-right;
+    align-self: end;
+}
+#next-top {
+    grid-area: top-right;
+    align-self: end;
+}
+#next-bottom {
+    grid-area: bottom-right;
+}
+#next-feet {
+    grid-area: feet-right;
+}
+
+#prev-head {
+    grid-area: head-right;
+    align-self: end;
+}
+#prev-top {
+    grid-area: top-right;
+    align-self: end;
+}
+#prev-bottom {
+    grid-area: bottom-right;
+}
+#prev-feet {
+    grid-area: feet-right;
 }
