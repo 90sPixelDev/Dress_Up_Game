@@ -23,6 +23,7 @@ body {
     width: 700px;
     height: 500px;
     display: grid;
+    box-shadow: -5px -5px 10px rgba(55, 55, 55, 0.7), 5px 5px 10px rgba(55, 55, 55, 0.7);
 }
 
 #game-bg {
@@ -38,7 +39,7 @@ body {
     left: 7em;
     width: 6em;
     height: 25px;
-    padding: 0  2em 0 0.3em;
+    padding: 0  2em 0 0.7em;
     text-align: left;
     color: white;
 
@@ -47,12 +48,16 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     border: 0;
+
+    border-radius: 25%;
+    border: 1px solid rgb(14, 46, 115);
+    box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
 }
 #prev-head, #prev-top, #prev-bottom, #prev-feet{
     position: relative;
     width: 6em;
     height: 25px;
-    padding: 0  0.3em 0 2em;
+    padding: 0  0.7em 0 2em;
     text-align: right;
     color: white;
 
@@ -61,6 +66,10 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     border: 0;
+
+    border-radius: 25%;
+    border: 1px solid rgb(14, 46, 115);
+    box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
 }
 
 /* When hovering over the buttons! */
@@ -73,7 +82,7 @@ body {
 
 /* The clothes to overite the character */
 #chara-gender {
-    background: url();
+    background: url("../img/gender/female.png");
     width: 100%;
     height: 100%;
     position: absolute;

@@ -54,7 +54,7 @@
 //LOGIC METHOD 2 ATTEMPTED WITH ARRAYS ----------------------------------------------
 
 const character = {
-    gender: 0,
+    gender: 'female',
     head:   0,
     top:    0,
     bottom: 0,
@@ -91,13 +91,11 @@ const itemSelector = (button) => {
             character.head++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.head === itemList.length ? character.head = 0 : character.head = character.head;
-            console.table(character.head);
         }
         else {
             character.head--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.head === -1 ? character.head = itemList.length - 1 : character.head = character.head;
-            console.table(character.head);
         }
     
     //FOR TOPS
@@ -110,13 +108,11 @@ const itemSelector = (button) => {
             character.top++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.top === itemList.length ? character.top = 0 : character.top = character.top;
-            console.table(character.top);
         }
         else {
             character.top--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.top === -1 ? character.top = itemList.length - 1 : character.top = character.top;
-            console.table(character.top);
         }
     }
 
@@ -129,13 +125,11 @@ const itemSelector = (button) => {
             character.bottom++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.bottom === itemList.length ? character.bottom = 0 : character.bottom = character.bottom;
-            console.table(character.bottom);
         }
         else {
             character.bottom--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.bottom === -1 ? character.bottom = itemList.length - 1 : character.bottom = character.bottom;
-            console.table(character.bottom)
         }
     }
 
@@ -148,13 +142,11 @@ const itemSelector = (button) => {
             character.feet++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.feet === itemList.length ? character.feet = 0 : character.feet = character.feet;
-            console.table(character.feet);
         }
         else {
             character.feet--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.feet === -1 ? character.feet = itemList.length - 1 : character.feet = character.feet;
-            console.table(character.feet)
         }
     }
 
@@ -164,7 +156,19 @@ const itemSelector = (button) => {
     console.table(character);
 }
 
+const genderChange = () => {
+    switch (character.gender) {
+        case 'female':
+            character.gender = 'male';
+            break;
+        case 'male':
+            character.gender = 'female';
+            break;
+    }
+    document.getElementById('chara-gender').style.background = "url('../img/gender/" + character.gender + ".png')";
+}
+
 // SO I ENDED UP DOING THE ABOVE SECOND METHOD TO MAKE IT CLEANER AND EASIER TO READ AND ALSO GET RID OF BUG FROM FIRST ONE ... BUT HONESTLY I THINK IT TURNED OUT MROE COMPLICATED LMAO
 // I GUESS THE ABOVE METHOD HAPPENS WHEN YOU TAKE ON THE CHALLENGE OF MAKING ONE FUNCTION WORK FOR ALL THE BUTTONS INSTEAD OF SEPARATING THEM (I was trying to not repeat code on a bunch of different functions)
-// I'm not sure what's better ... one big function for all buttons or a seperate function for each button ? I guess it would depend on scalability factor ? I mostly did one big function for all as they do the
+// I'm not sure what's better ... one big function for all buttons(almost) or a seperate function for each button ? I guess it would depend on scalability factor ? I mostly did one big function for all as they do the
 // save for the gender button. I would definitely do a different function for other buttons
