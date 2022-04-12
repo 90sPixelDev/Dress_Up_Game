@@ -76,25 +76,25 @@ body {
     position: absolute;
 }
 #head {
-    background: url("../img/head/head_01.png");
+    background: url("../img/head/head_1.png");
     width: 100%;
     height: 100%;
     position: absolute;
 }
 #top {
-    background: url("../img/top/top_01.png");
+    background: url("../img/top/top_1.png");
     width: 100%;
     height: 100%;
     position: absolute;
 }
 #bottom {
-    background: url("../img/bottom/bottom_01.png");
+    background: url("../img/bottom/bottom_1.png");
     width: 100%;
     height: 100%;
     position: absolute;
 }
 #feet {
-    background: url("../img/feet/feet_01.png");
+    background: url("../img/feet/feet_1.png");
     width: 100%;
     height: 100%;
     position: absolute;
