@@ -67,6 +67,9 @@ body {
 #gender:hover, #next-head:hover, #prev-head:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-feet:hover, #prev-feet:hover{
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
 }
+#gender:active, #next-head:active, #prev-head:active, #next-top:active, #prev-top:active, #next-bottom:active, #prev-bottom:active, #next-feet:active, #prev-feet:active{
+    box-shadow: inset 0 0 100px 100px rgba(55, 55, 55, 0.3);
+}
 
 /* The clothes to overite the character */
 #chara-gender {
