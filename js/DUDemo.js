@@ -166,6 +166,7 @@ const genderChange = () => {
             break;
     }
     document.getElementById('chara-gender').style.background = "url('../img/gender/" + character.gender + ".png')";
+    console.table(character);
 }
 
 // SO I ENDED UP DOING THE ABOVE SECOND METHOD TO MAKE IT CLEANER AND EASIER TO READ AND ALSO GET RID OF BUG FROM FIRST ONE ... BUT HONESTLY I THINK IT TURNED OUT MROE COMPLICATED LMAO
