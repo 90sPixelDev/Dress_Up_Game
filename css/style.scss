@@ -1,3 +1,7 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 html {
     /* box-sizing: border-box; */
     margin: 0;
@@ -49,7 +53,7 @@ body {
     border: 1px solid rgb(14, 46, 115);
     box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
 }
-#prev-hair, #prev-top, #prev-bottom, #prev-shoe{
+#prev-base, #prev-hair, #prev-top, #prev-bottom, #prev-shoe{
     position: relative;
     width: 6em;
     height: 25px;
@@ -69,11 +73,8 @@ body {
 }
 
 /* When hovering over the buttons! */
-#next-base:hover, #next-hair:hover, #prev-hair:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-shoe:hover, #prev-shoe:hover{
+#next-base:hover, #prev-base:hover, #next-hair:hover, #prev-hair:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-shoe:hover, #prev-shoe:hover{
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
-}
-#next-base:active, #next-hair:active, #prev-hair:active, #next-top:active, #prev-top:active, #next-bottom:active, #prev-bottom:active, #next-shoe:active, #prev-shoe:active{
-    box-shadow: inset 0 0 100px 100px rgba(55, 55, 55, 0.3);
 }
 
 /* The clothes to overite the character */
@@ -83,7 +84,7 @@ body {
     height: 100%;
     position: absolute;
 }
-#chara-base {
+#base {
     background: url("../img/base/base_1.png");
     width: 100%;
     height: 100%;
@@ -123,47 +124,101 @@ form {
     width: 100%;
     height: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     grid-template-areas:
-    "logo logo base"
+    "logo-left logo base-right"
+    "base-left base base-right"
     "head-left head head-right"
     "top-left top top-right"
-    "gender blank blank"
+    "blank-left blank blank-right"
     "bottom-left bottom bottom-right"
     "feet-left feet feet-right";
 }
 
 /* Positions of the buttons on the grid */
+.color-section {
+    font-size: 12px;
+    grid-area: base-right;
+    align-self: center;
+    width: min-content;
+    color: white;
+    text-align: center;
+    margin-left: 3em;
+}
+input[type=range] {
+    margin: 1em;
+}
+
+// Next Buttons
 #next-base {
-    grid-area: base;
-    align-self: flex-end;
+    grid-area: blank-right;
+    align-self: center;
+    margin-left: 2em;
 }
 #next-hair {
     grid-area: head-right;
     align-self: end;
+    margin-left: 2em;
 }
 #next-top {
     grid-area: top-right;
     align-self: end;
+    margin-left: 2em;
 }
 #next-bottom {
     grid-area: bottom-right;
+    margin-left: 2em;
 }
 #next-shoe {
     grid-area: feet-right;
+    margin-left: 2em;
 }
-
+// Previous Buttons
+#prev-base {
+    grid-area: blank-right;
+    align-self: center;
+    margin-left: 2em;
+}
 #prev-hair {
     grid-area: head-right;
     align-self: end;
+    margin-left: 2em;
 }
 #prev-top {
     grid-area: top-right;
     align-self: end;
+    margin-left: 2em;
 }
 #prev-bottom {
     grid-area: bottom-right;
+    margin-left: 2em;
 }
 #prev-shoe {
     grid-area: feet-right;
+    margin-left: 2em;
+}
+
+/* RADIO BUTTONS TO SELECT WHICH ITEM TO COLOR */
+#base-color {
+    grid-area: blank-right;
+    align-self: center;
+    margin-left: .35em;
+}
+#hair-color {
+    grid-area: head-right;
+    align-self: flex-end;
+    margin: 0 0 .35em .5em;
+}
+#top-color {
+    grid-area: top-right;
+    align-self: flex-end;
+    margin: 0 0 .35em .5em;
+}
+#bottom-color {
+    grid-area: bottom-right;
+    margin: .35em 0 0 .5em;
+}
+#shoes-color {
+    grid-area: feet-right;
+    margin: .35em 0 0 .5em;
 }

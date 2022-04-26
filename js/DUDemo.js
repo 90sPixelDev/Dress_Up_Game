@@ -53,39 +53,20 @@
 
 //LOGIC METHOD 2 ATTEMPTED WITH ARRAYS ----------------------------------------------
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateAppearance();
-})
+const hueSlider = document.getElementById('hue');
 
-const updateAppearance = () => {
 
-}
+// VARIABLE TO RESPRESENT ITEM IN ARRAY THAT IS SELECTED
+let currentItem = 0;
+let itemtoColor;
+let colorItem;
 
 const character = {
     base:   0,
     hair:   0,
     top:    0,
     bottom: 0,
-    shoes:   0,
-    // nextItem(button) {
-    //     switch (button) {
-    //         case 'base':
-
-    //         break;
-    //         case 'hair':
-
-    //         break;
-    //         case 'top':
-
-    //         break;
-    //         case 'bottom':
-
-    //         break;
-    //         case 'shoe':
-
-    //         break;
-    //     }
-    // }
+    shoes:  0
 }
 
 // ALL ITEMS IN EACH ITEM TYPE
@@ -95,10 +76,27 @@ const allTops = ['top_1', 'top_2', 'top_3', 'top_4', 'top_5', 'top_6', 'top_7', 
 const allBottoms = ['bottom_1', 'bottom_2', 'bottom_3', 'bottom_4', 'bottom_5', 'bottom_6', 'bottom_7', 'bottom_8', 'bottom_9', 'bottom_10'];
 const allShoes = ['shoes_1', 'shoes_2', 'shoes_3', 'shoes_4', 'shoes_5'];
 
-const itemType = ['hair', 'top', 'bottom', 'shoes'];
+const itemType = ['base', 'hair', 'top', 'bottom', 'shoes'];
 
-// VARIABLE TO RESPRESENT ITEM IN ARRAY THAT IS SELECTED
-let currentItem = 0;
+const itemTypetoColor = (radio) => {
+    let tempItem = radio.id;
+    itemtoColor = tempItem.replace('-color', '');
+    console.log(itemtoColor);
+}
+
+const hueChange = (slider) => {
+    if (itemtoColor === undefined) return;
+    item = document.getElementById(itemtoColor);
+    let hueValue = slider.value;
+    item.style.filter = `hue-rotate(${hueValue}deg)`;
+}
+
+const brightnessChange = (slider) => {
+    if (itemtoColor === undefined) return;
+    item = document.getElementById(itemtoColor);
+    let brightnessValue = slider.value;
+    item.style.filter = `brightness(${brightnessValue}%)`;
+}
 
 const itemSelector = (button) => {
 
@@ -109,8 +107,41 @@ const itemSelector = (button) => {
     let itemTypeIndex;
 
     // SELECTING WHICH TYPE OF ITEM NEEDS TO BE CHANGED
+    //FOR BASES
+    if (button.id.includes('base')){
+        //  AUTOMATICALLY SETTING TO CHANGE THE COLOR OF THE CHANGED ITEM
+        colorItem = document.getElementById('base-color');
+        console.log(colorItem);
+        colorItem.checked = true;
+        itemTypetoColor(colorItem);
+
+        document.getElementById('base-color').checked = true;
+        console.log('Pressed Hair');
+        itemTypeIndex = itemType.indexOf('base');
+        itemList = allBases;
+            // CHECKING DIRECTION TO SWITCH ITEMS
+        if (button.id.includes('next')){
+            console.log('+1 to base');
+            character.base++;
+            //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
+            character.base === itemList.length ? character.base = 0 : character.base = character.base;
+            console.log(character.base);
+        }
+        else {
+            character.base--;
+            //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
+            character.base === -1 ? character.base = itemList.length - 1 : character.base = character.base;
+        }
+    }
     //FOR HEADS
     if (button.id.includes('hair')){
+        //  AUTOMATICALLY SETTING TO CHANGE THE COLOR OF THE CHANGED ITEM
+        colorItem = document.getElementById('hair-color');
+        console.log(colorItem);
+        colorItem.checked = true;
+        itemTypetoColor(colorItem);
+
+        document.getElementById('hair-color').checked = true;
         console.log('Pressed Hair');
         itemTypeIndex = itemType.indexOf('hair');
         itemList = allHairs;
@@ -131,6 +162,13 @@ const itemSelector = (button) => {
     //FOR TOPS
     }
     if (button.id.includes('top')){
+        //  AUTOMATICALLY SETTING TO CHANGE THE COLOR OF THE CHANGED ITEM
+        colorItem = document.getElementById('top-color');
+        console.log(colorItem);
+        colorItem.checked = true;
+        itemTypetoColor(colorItem);
+
+        document.getElementById('top-color').checked = true;
         itemTypeIndex = itemType.indexOf('top');
         itemList = allTops;
         // CHECKING DIRECTION TO SWITCH ITEMS
@@ -148,6 +186,12 @@ const itemSelector = (button) => {
 
     //FOR BOTTOMS
     if (button.id.includes('bottom')){
+        //  AUTOMATICALLY SETTING TO CHANGE THE COLOR OF THE CHANGED ITEM
+        colorItem = document.getElementById('bottom-color');
+        console.log(colorItem);
+        colorItem.checked = true;
+        itemTypetoColor(colorItem);
+
         itemTypeIndex = itemType.indexOf('bottom');
         itemList = allBottoms;
         // CHECKING DIRECTION TO SWITCH ITEMS
@@ -165,6 +209,12 @@ const itemSelector = (button) => {
 
     //FOR SHOES
     if (button.id.includes('shoe')){
+        //  AUTOMATICALLY SETTING TO CHANGE THE COLOR OF THE CHANGED ITEM
+        colorItem = document.getElementById('shoes-color');
+        console.log(colorItem);
+        colorItem.checked = true;
+        itemTypetoColor(colorItem);
+
         itemTypeIndex = itemType.indexOf('shoes');
         itemList = allShoes;
         // CHECKING DIRECTION TO SWITCH ITEMS
@@ -178,7 +228,6 @@ const itemSelector = (button) => {
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.shoes === -1 ? character.shoes = itemList.length - 1 : character.shoes = character.shoes;
         }
-        console.log(character.shoes, itemList);
     }
 
     const charaItem = itemType[itemTypeIndex];
@@ -192,3 +241,5 @@ const itemSelector = (button) => {
 // I GUESS THE ABOVE METHOD HAPPENS WHEN YOU TAKE ON THE CHALLENGE OF MAKING ONE FUNCTION WORK FOR ALL THE BUTTONS INSTEAD OF SEPARATING THEM (I was trying to not repeat code on a bunch of different functions)
 // I'm not sure what's better ... one big function for all buttons(almost) or a seperate function for each button ? I guess it would depend on scalability factor ? I mostly did one big function for all as they do the
 // save for the gender button. I would definitely do a different function for other buttons
+
+// Added a way to change the hue and breightness but when changing them together on same object it only changes the original color ... have to build a way to hold both values together on the character

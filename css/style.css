@@ -1,0 +1,292 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: antiquewhite;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.game-container {
+  position: absolute;
+  background-color: #c3aa8c;
+  width: 700px;
+  height: 500px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.7);
+          box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.7);
+}
+
+#game-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../img/test/test-layout-bg.png");
+}
+
+/* Button Styles */
+#next-base, #next-hair, #next-top, #next-bottom, #next-shoe {
+  position: relative;
+  left: 7em;
+  width: 6em;
+  height: 25px;
+  padding: 0 2em 0 0.7em;
+  text-align: left;
+  color: white;
+  background: url("../img/test/next-btn.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 25%;
+  border: 1px solid #0e2e73;
+  -webkit-box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+          box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+}
+
+#prev-base, #prev-hair, #prev-top, #prev-bottom, #prev-shoe {
+  position: relative;
+  width: 6em;
+  height: 25px;
+  padding: 0  0.7em 0 2em;
+  text-align: right;
+  color: white;
+  background: url("../img/test/prev-btn.png");
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 25%;
+  border: 1px solid #0e2e73;
+  -webkit-box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+          box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+}
+
+/* When hovering over the buttons! */
+#next-base:hover, #prev-base:hover, #next-hair:hover, #prev-hair:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-shoe:hover, #prev-shoe:hover {
+  -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+          box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+}
+
+/* The clothes to overite the character */
+#game-bg {
+  background: url("../img/bg.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#base {
+  background: url("../img/base/base_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#hair {
+  background: url("../img/hair/hair_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#top {
+  background: url("../img/top/top_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#bottom {
+  background: url("../img/bottom/bottom_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#shoes {
+  background: url("../img/shoes/shoes_1.png");
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* Button Position Set Up */
+form {
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: (1fr)[7];
+      grid-template-rows: repeat(7, 1fr);
+      grid-template-areas: "logo-left logo base-right" "base-left base base-right" "head-left head head-right" "top-left top top-right" "blank-left blank blank-right" "bottom-left bottom bottom-right" "feet-left feet feet-right";
+}
+
+/* Positions of the buttons on the grid */
+.color-section {
+  font-size: 12px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: base-right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  color: white;
+  text-align: center;
+  margin-left: 3em;
+}
+
+input[type=range] {
+  margin: 1em;
+}
+
+#next-base {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: blank-right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 2em;
+}
+
+#next-hair {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: head-right;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  margin-left: 2em;
+}
+
+#next-top {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: top-right;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  margin-left: 2em;
+}
+
+#next-bottom {
+  -ms-grid-row: 6;
+  -ms-grid-column: 3;
+  grid-area: bottom-right;
+  margin-left: 2em;
+}
+
+#next-shoe {
+  -ms-grid-row: 7;
+  -ms-grid-column: 3;
+  grid-area: feet-right;
+  margin-left: 2em;
+}
+
+#prev-base {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: blank-right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 2em;
+}
+
+#prev-hair {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: head-right;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  margin-left: 2em;
+}
+
+#prev-top {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: top-right;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  margin-left: 2em;
+}
+
+#prev-bottom {
+  -ms-grid-row: 6;
+  -ms-grid-column: 3;
+  grid-area: bottom-right;
+  margin-left: 2em;
+}
+
+#prev-shoe {
+  -ms-grid-row: 7;
+  -ms-grid-column: 3;
+  grid-area: feet-right;
+  margin-left: 2em;
+}
+
+/* RADIO BUTTONS TO SELECT WHICH ITEM TO COLOR */
+#base-color {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: blank-right;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: .35em;
+}
+
+#hair-color {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: head-right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 0 0 .35em .5em;
+}
+
+#top-color {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: top-right;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin: 0 0 .35em .5em;
+}
+
+#bottom-color {
+  -ms-grid-row: 6;
+  -ms-grid-column: 3;
+  grid-area: bottom-right;
+  margin: .35em 0 0 .5em;
+}
+
+#shoes-color {
+  -ms-grid-row: 7;
+  -ms-grid-column: 3;
+  grid-area: feet-right;
+  margin: .35em 0 0 .5em;
+}
+/*# sourceMappingURL=style.css.map */
