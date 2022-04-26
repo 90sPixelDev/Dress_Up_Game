@@ -34,7 +34,7 @@ body {
 }
 
 /* Button Styles */
-#gender, #next-head, #next-top, #next-bottom, #next-feet{
+#base, #next-hair, #next-top, #next-bottom, #next-shoe{
     position: relative;
     left: 7em;
     width: 6em;
@@ -53,7 +53,7 @@ body {
     border: 1px solid rgb(14, 46, 115);
     box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
 }
-#prev-head, #prev-top, #prev-bottom, #prev-feet{
+#prev-hair, #prev-top, #prev-bottom, #prev-shoe{
     position: relative;
     width: 6em;
     height: 25px;
@@ -73,21 +73,21 @@ body {
 }
 
 /* When hovering over the buttons! */
-#gender:hover, #next-head:hover, #prev-head:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-feet:hover, #prev-feet:hover{
+#base:hover, #next-hair:hover, #prev-hair:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-shoe:hover, #prev-shoe:hover{
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
 }
-#gender:active, #next-head:active, #prev-head:active, #next-top:active, #prev-top:active, #next-bottom:active, #prev-bottom:active, #next-feet:active, #prev-feet:active{
+#base:active, #next-hair:active, #prev-hair:active, #next-top:active, #prev-top:active, #next-bottom:active, #prev-bottom:active, #next-shoe:active, #prev-shoe:active{
     box-shadow: inset 0 0 100px 100px rgba(55, 55, 55, 0.3);
 }
 
 /* The clothes to overite the character */
-#chara-gender {
+#chara-base {
     background: url("../img/gender/female.png");
     width: 100%;
     height: 100%;
     position: absolute;
 }
-#head {
+#hair {
     background: url("../img/head/head_1.png");
     width: 100%;
     height: 100%;
@@ -105,7 +105,7 @@ body {
     height: 100%;
     position: absolute;
 }
-#feet {
+#shoe {
     background: url("../img/feet/feet_1.png");
     width: 100%;
     height: 100%;
@@ -127,15 +127,15 @@ form {
     "top-left top top-right"
     "gender blank blank"
     "bottom-left bottom bottom-right"
-    "feet-left feet feet-right"
+    "feet-left feet feet-right";
 }
 
 /* Positions of the buttons on the grid */
-#gender {
+#base {
     grid-area: gender;
     justify-self: left;
 }
-#next-head {
+#next-hair {
     grid-area: head-right;
     align-self: end;
 }
@@ -146,11 +146,11 @@ form {
 #next-bottom {
     grid-area: bottom-right;
 }
-#next-feet {
+#next-shoe {
     grid-area: feet-right;
 }
 
-#prev-head {
+#prev-hair {
     grid-area: head-right;
     align-self: end;
 }
@@ -161,6 +161,6 @@ form {
 #prev-bottom {
     grid-area: bottom-right;
 }
-#prev-feet {
+#prev-shoe {
     grid-area: feet-right;
 }

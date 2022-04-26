@@ -53,20 +53,47 @@
 
 //LOGIC METHOD 2 ATTEMPTED WITH ARRAYS ----------------------------------------------
 
+document.addEventListener('DOMContentLoaded', () => {
+    updateAppearance();
+})
+
+const updateAppearance = () => {
+    
+}
+
 const character = {
-    gender: 'female',
-    head:   0,
+    base:   0,
+    hair:   0,
     top:    0,
     bottom: 0,
-    feet:   0
+    shoe:   0,
+    nextItem(button) {
+        switch (button) {
+            case 'base':
+
+            break;
+            case 'hair':
+
+            break;
+            case 'top':
+
+            break;
+            case 'bottom':
+
+            break;
+            case 'shoe':
+
+            break;
+        }
+    }
 }
 
 // ALL ITEMS IN EACH ITEM TYPE
-const allGenders = ['female', 'male'];
-const allHeads = ['head_1', 'head_2', 'head_3'];
+const allBases = ['female', 'male'];
+const allHairs = ['hair_1', 'hair_2', 'hair_3'];
 const allTops = ['top_1', 'top_2', 'top_3'];
 const allBottoms = ['bottom_1', 'bottom_2', 'bottom_3'];
-const allFeet = ['feet_1', 'feet_2', 'feet_3'];
+const allShoes = ['shoes_1', 'shoes_2', 'shoes_3'];
 
 const itemType = ['head', 'top', 'bottom', 'feet'];
 
@@ -83,19 +110,19 @@ const itemSelector = (button) => {
 
     // SELECTING WHICH TYPE OF ITEM NEEDS TO BE CHANGED
     //FOR HEADS
-    if (button.id.includes('head')){
-        itemTypeIndex = itemType.indexOf('head');
-        itemList = allHeads;
+    if (button.id.includes('hair')){
+        itemTypeIndex = itemType.indexOf('hair');
+        itemList = allHairs;
             // CHECKING DIRECTION TO SWITCH ITEMS
         if (button.id.includes('next')){
-            character.head++;
+            character.hair++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
-            character.head === itemList.length ? character.head = 0 : character.head = character.head;
+            character.hair === itemList.length ? character.hair = 0 : character.hair = character.hair;
         }
         else {
-            character.head--;
+            character.hair--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
-            character.head === -1 ? character.head = itemList.length - 1 : character.head = character.head;
+            character.hair === -1 ? character.hair = itemList.length - 1 : character.hair = character.hair;
         }
     
     //FOR TOPS
@@ -133,39 +160,26 @@ const itemSelector = (button) => {
         }
     }
 
-    //FOR FEET
-    if (button.id.includes('feet')){
-        itemTypeIndex = itemType.indexOf('feet');
-        itemList = allFeet;
+    //FOR SHOES
+    if (button.id.includes('shoe')){
+        itemTypeIndex = itemType.indexOf('shoe');
+        itemList = allShoes;
         // CHECKING DIRECTION TO SWITCH ITEMS
         if (button.id.includes('next')){
-            character.feet++;
+            character.shoe++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
-            character.feet === itemList.length ? character.feet = 0 : character.feet = character.feet;
+            character.shoe === itemList.length ? character.shoe = 0 : character.shoe = character.shoe;
         }
         else {
-            character.feet--;
+            character.shoe--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
-            character.feet === -1 ? character.feet = itemList.length - 1 : character.feet = character.feet;
+            character.shoe === -1 ? character.shoe = itemList.length - 1 : character.shoe = character.shoe;
         }
     }
 
     const charaItem = itemType[itemTypeIndex];
     // USING ALL VARIABLES TO SET THE IMAGE OF THE CHARACTER (yes it's a mouthful this line here)
     document.getElementById(charaItem).style.background = url + charaItem + '/' + itemList[character[charaItem]] + '.png)';
-    console.table(character);
-}
-
-const genderChange = () => {
-    switch (character.gender) {
-        case 'female':
-            character.gender = 'male';
-            break;
-        case 'male':
-            character.gender = 'female';
-            break;
-    }
-    document.getElementById('chara-gender').style.background = "url('../img/gender/" + character.gender + ".png')";
     console.table(character);
 }
 
