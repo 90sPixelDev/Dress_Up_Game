@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const updateAppearance = () => {
-    
+
 }
 
 const character = {
@@ -66,36 +66,36 @@ const character = {
     hair:   0,
     top:    0,
     bottom: 0,
-    shoe:   0,
-    nextItem(button) {
-        switch (button) {
-            case 'base':
+    shoes:   0,
+    // nextItem(button) {
+    //     switch (button) {
+    //         case 'base':
 
-            break;
-            case 'hair':
+    //         break;
+    //         case 'hair':
 
-            break;
-            case 'top':
+    //         break;
+    //         case 'top':
 
-            break;
-            case 'bottom':
+    //         break;
+    //         case 'bottom':
 
-            break;
-            case 'shoe':
+    //         break;
+    //         case 'shoe':
 
-            break;
-        }
-    }
+    //         break;
+    //     }
+    // }
 }
 
 // ALL ITEMS IN EACH ITEM TYPE
-const allBases = ['female', 'male'];
-const allHairs = ['hair_1', 'hair_2', 'hair_3'];
-const allTops = ['top_1', 'top_2', 'top_3'];
-const allBottoms = ['bottom_1', 'bottom_2', 'bottom_3'];
-const allShoes = ['shoes_1', 'shoes_2', 'shoes_3'];
+const allBases = ['base_1', 'base_2', 'base_3', 'base_4', 'base_5', 'base_6', 'base_7', 'base_8', 'base_9', 'base_10'];
+const allHairs = ['hair_1', 'hair_2', 'hair_3', 'hair_4', 'hair_5', 'hair_6', 'hair_7', 'hair_8', 'hair_9', 'hair_10'];
+const allTops = ['top_1', 'top_2', 'top_3', 'top_4', 'top_5', 'top_6', 'top_7', 'top_8', 'top_9', 'top_10'];
+const allBottoms = ['bottom_1', 'bottom_2', 'bottom_3', 'bottom_4', 'bottom_5', 'bottom_6', 'bottom_7', 'bottom_8', 'bottom_9', 'bottom_10'];
+const allShoes = ['shoes_1', 'shoes_2', 'shoes_3', 'shoes_4', 'shoes_5'];
 
-const itemType = ['head', 'top', 'bottom', 'feet'];
+const itemType = ['hair', 'top', 'bottom', 'shoes'];
 
 // VARIABLE TO RESPRESENT ITEM IN ARRAY THAT IS SELECTED
 let currentItem = 0;
@@ -111,13 +111,16 @@ const itemSelector = (button) => {
     // SELECTING WHICH TYPE OF ITEM NEEDS TO BE CHANGED
     //FOR HEADS
     if (button.id.includes('hair')){
+        console.log('Pressed Hair');
         itemTypeIndex = itemType.indexOf('hair');
         itemList = allHairs;
             // CHECKING DIRECTION TO SWITCH ITEMS
         if (button.id.includes('next')){
+            console.log('+1 to Hair');
             character.hair++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
             character.hair === itemList.length ? character.hair = 0 : character.hair = character.hair;
+            console.log(character.hair);
         }
         else {
             character.hair--;
@@ -162,22 +165,24 @@ const itemSelector = (button) => {
 
     //FOR SHOES
     if (button.id.includes('shoe')){
-        itemTypeIndex = itemType.indexOf('shoe');
+        itemTypeIndex = itemType.indexOf('shoes');
         itemList = allShoes;
         // CHECKING DIRECTION TO SWITCH ITEMS
         if (button.id.includes('next')){
-            character.shoe++;
+            character.shoes++;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
-            character.shoe === itemList.length ? character.shoe = 0 : character.shoe = character.shoe;
+            character.shoes === itemList.length ? character.shoes = 0 : character.shoes = character.shoes;
         }
         else {
-            character.shoe--;
+            character.shoes--;
             //MAKING SURE INDEX DOES NOT PASS THE ARRAY LENGTH
-            character.shoe === -1 ? character.shoe = itemList.length - 1 : character.shoe = character.shoe;
+            character.shoes === -1 ? character.shoes = itemList.length - 1 : character.shoes = character.shoes;
         }
+        console.log(character.shoes, itemList);
     }
 
     const charaItem = itemType[itemTypeIndex];
+    console.log(charaItem);
     // USING ALL VARIABLES TO SET THE IMAGE OF THE CHARACTER (yes it's a mouthful this line here)
     document.getElementById(charaItem).style.background = url + charaItem + '/' + itemList[character[charaItem]] + '.png)';
     console.table(character);
