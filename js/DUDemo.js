@@ -4,8 +4,6 @@ const satSlider = document.getElementById('saturate');
 
 const warnText = document.querySelector('.text');
 
-console.log(hueSlider);
-
 let hueValue = hueSlider.value;
 let brightnessValue = brightnessSlider.value;
 let satValue = satSlider.value;
@@ -113,7 +111,7 @@ brightnessSlider.addEventListener('input', (e) => {
 
 const itemSelector = (button) => {
 	// SETTING UP THE VARIABLES TO USE LATER
-	const url = 'url(../img/';
+	const url = 'url(img/';
 	let itemList;
 	//THIS IS TO HAVE A SEPERATE INDEX FOR EACH ITEM TYPE CHANGE TO PREVENT BUG FROM LOGIC METHOD 1
 	let itemTypeIndex;
