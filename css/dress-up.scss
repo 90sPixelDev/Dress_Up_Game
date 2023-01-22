@@ -180,6 +180,22 @@ input[type='range'] {
 	margin: 0.5em;
 }
 
+#warning {
+	grid-area: head-right;
+	.text {
+		margin-top: 0;
+		font-size: 12px;
+		text-align: center;
+		color: red;
+		opacity: 0;
+		transition: opacity 0.5s;
+	}
+	.warn {
+		opacity: 100%;
+		transition: opacity 0.5s;
+	}
+}
+
 // Next Buttons
 #next-base {
 	grid-area: blank-right;

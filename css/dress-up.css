@@ -175,6 +175,22 @@ input[type=range] {
   margin: 0.5em;
 }
 
+#warning {
+  grid-area: head-right;
+}
+#warning .text {
+  margin-top: 0;
+  font-size: 12px;
+  text-align: center;
+  color: red;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+#warning .warn {
+  opacity: 100%;
+  transition: opacity 0.5s;
+}
+
 #next-base {
   grid-area: blank-right;
   align-self: center;

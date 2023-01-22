@@ -2,10 +2,13 @@ const hueSlider = document.getElementById('hue');
 const brightnessSlider = document.getElementById('brightness');
 const satSlider = document.getElementById('saturate');
 
+const warnText = document.querySelector('.text');
+
 console.log(hueSlider);
 
 let hueValue = hueSlider.value;
 let brightnessValue = brightnessSlider.value;
+let satValue = satSlider.value;
 
 // VARIABLE TO RESPRESENT ITEM IN ARRAY THAT IS SELECTED
 let currentItem = 0;
@@ -74,43 +77,39 @@ const allShoes = ['shoes_1', 'shoes_2', 'shoes_3', 'shoes_4', 'shoes_5'];
 const itemType = ['base', 'hair', 'top', 'bottom', 'shoes'];
 
 const itemTypetoColor = (radio) => {
+	warnText.classList.remove('warn');
 	let tempItem = radio.id;
 	itemtoColor = tempItem.replace('-color', '');
 	console.log(itemtoColor);
 };
 
 hueSlider.addEventListener('input', (e) => {
-	if (itemtoColor === undefined) return;
+	if (itemtoColor === undefined) {
+		warnText.classList.add('warn');
+		return;
+	}
 	hueValue = e.currentTarget.value;
 	item = document.getElementById(itemtoColor);
 	item.style.filter = `hue-rotate(${hueValue}deg) brightness(${brightnessValue}%) saturate(${satValue}%)`;
 });
 satSlider.addEventListener('input', (e) => {
-	if (itemtoColor === undefined) return;
+	if (itemtoColor === undefined) {
+		warnText.classList.add('warn');
+		return;
+	}
 	satValue = e.currentTarget.value;
 	item = document.getElementById(itemtoColor);
 	item.style.filter = `hue-rotate(${hueValue}deg) brightness(${brightnessValue}%) saturate(${satValue}%)`;
 });
 brightnessSlider.addEventListener('input', (e) => {
-	if (itemtoColor === undefined) return;
+	if (itemtoColor === undefined) {
+		warnText.classList.add('warn');
+		return;
+	}
 	item = document.getElementById(itemtoColor);
 	brightnessValue = e.currentTarget.value;
 	item.style.filter = `hue-rotate(${hueValue}deg) brightness(${brightnessValue}%) saturate(${satValue}%)`;
 });
-
-// const hueChange = (slider) => {
-// 	if (itemtoColor === undefined) return;
-// 	item = document.getElementById(itemtoColor);
-// 	let hueValue = slider.value;
-// 	item.style.filter = `hue-rotate(${hueValue}deg)`;
-// };
-
-// const brightnessChange = (slider) => {
-// 	if (itemtoColor === undefined) return;
-// 	item = document.getElementById(itemtoColor);
-// 	let brightnessValue = slider.value;
-// 	item.style.filter = `brightness(${brightnessValue}%)`;
-// };
 
 const itemSelector = (button) => {
 	// SETTING UP THE VARIABLES TO USE LATER
