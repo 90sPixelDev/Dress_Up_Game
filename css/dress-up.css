@@ -160,19 +160,19 @@ form {
 
 /* Positions of the buttons on the grid */
 .color-section {
+  display: flex;
+  flex-direction: column;
   font-size: 12px;
   grid-area: base-right;
   align-self: center;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
+  width: full;
   color: white;
   text-align: center;
-  margin-left: 3em;
+  margin: 0 2em;
 }
 
 input[type=range] {
-  margin: 1em;
+  margin: 0.5em;
 }
 
 #next-base {

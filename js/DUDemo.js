@@ -1,57 +1,11 @@
-//LOGIC METHOD 1 (works except for gender that's not set up and also a slight bug)
-
-// const character = {
-//     gender: 1,
-//     head:   1,
-//     top:    1,
-//     bottom: 1,
-//     feet:   1
-// };
-
-// //Passing the button id through function to grab correct item
-// const itemSelector = (button) => {
-//     const buttonType = button.id;
-//     //Determining whether going up in array of items or down
-//     let isPosDir = buttonType.includes('next') ? true : false;
-//     console.log(buttonType);
-
-//     //Determining which item type to be changing tehn running the setItem function to complete the process
-//     if (buttonType.includes('head')) {
-//         let url = '../img/head/head_';
-//         setItem('head', character.head, isPosDir, url);
-//     }
-//     if (buttonType.includes('top')) {
-//         let url = '../img/top/top_';
-//         setItem('top', character.top, isPosDir, url);
-//     }
-//     if (buttonType.includes('bottom')) {
-//         let url = '../img/bottom/bottom_';
-//         setItem('bottom', character.bottom, isPosDir, url);
-//     }
-//     if (buttonType.includes('feet')) {
-//         let url = '../img/feet/feet_';
-//         setItem('feet', character.feet, isPosDir, url);
-//     }
-// }
-
-// const setItem = (itemType, itemIndex, isPosDir, url) => {
-//     isPosDir ? itemIndex++ : itemIndex--;
-
-//     //Making sure the index of items doesnt go below or above the items available
-//     if (itemIndex === 0) itemIndex = 1;
-//     if (itemIndex === 4) itemIndex = 3;
-
-//     //Setting the character object values to update with the current item in scene
-//     character[itemType] = itemIndex;
-//     //Setting up the url of the img to use
-//     itemString = 'url(' + `${url}${itemIndex}.png)`;
-//     document.getElementById(itemType).style.background = itemString;
-//     console.table(itemType, itemIndex, itemString);
-// }
-
-//LOGIC METHOD 2 ATTEMPTED WITH ARRAYS ----------------------------------------------
-
 const hueSlider = document.getElementById('hue');
+const brightnessSlider = document.getElementById('brightness');
+const satSlider = document.getElementById('saturate');
+
+console.log(hueSlider);
+
+let hueValue = hueSlider.value;
+let brightnessValue = brightnessSlider.value;
 
 // VARIABLE TO RESPRESENT ITEM IN ARRAY THAT IS SELECTED
 let currentItem = 0;
@@ -125,19 +79,38 @@ const itemTypetoColor = (radio) => {
 	console.log(itemtoColor);
 };
 
-const hueChange = (slider) => {
+hueSlider.addEventListener('input', (e) => {
+	if (itemtoColor === undefined) return;
+	hueValue = e.currentTarget.value;
+	item = document.getElementById(itemtoColor);
+	item.style.filter = `hue-rotate(${hueValue}deg) brightness(${brightnessValue}%) saturate(${satValue}%)`;
+});
+satSlider.addEventListener('input', (e) => {
+	if (itemtoColor === undefined) return;
+	satValue = e.currentTarget.value;
+	item = document.getElementById(itemtoColor);
+	item.style.filter = `hue-rotate(${hueValue}deg) brightness(${brightnessValue}%) saturate(${satValue}%)`;
+});
+brightnessSlider.addEventListener('input', (e) => {
 	if (itemtoColor === undefined) return;
 	item = document.getElementById(itemtoColor);
-	let hueValue = slider.value;
-	item.style.filter = `hue-rotate(${hueValue}deg)`;
-};
+	brightnessValue = e.currentTarget.value;
+	item.style.filter = `hue-rotate(${hueValue}deg) brightness(${brightnessValue}%) saturate(${satValue}%)`;
+});
 
-const brightnessChange = (slider) => {
-	if (itemtoColor === undefined) return;
-	item = document.getElementById(itemtoColor);
-	let brightnessValue = slider.value;
-	item.style.filter = `brightness(${brightnessValue}%)`;
-};
+// const hueChange = (slider) => {
+// 	if (itemtoColor === undefined) return;
+// 	item = document.getElementById(itemtoColor);
+// 	let hueValue = slider.value;
+// 	item.style.filter = `hue-rotate(${hueValue}deg)`;
+// };
+
+// const brightnessChange = (slider) => {
+// 	if (itemtoColor === undefined) return;
+// 	item = document.getElementById(itemtoColor);
+// 	let brightnessValue = slider.value;
+// 	item.style.filter = `brightness(${brightnessValue}%)`;
+// };
 
 const itemSelector = (button) => {
 	// SETTING UP THE VARIABLES TO USE LATER
@@ -261,7 +234,7 @@ const itemSelector = (button) => {
 
 	//FOR SHOES
 	if (button.id.includes('shoe')) {
-		//  AUTOMATICALLY SETTING TO CHANGE THE COLOR OF THE CHANGED ITEM
+		//  AUTOMATICALLY SET TO CHANGE THE COLOR OF THE CHANGED ITEM
 		colorItem = document.getElementById('shoes-color');
 		console.log(colorItem);
 		colorItem.checked = true;
@@ -292,10 +265,3 @@ const itemSelector = (button) => {
 		url + charaItem + '/' + itemList[character[charaItem]] + '.png)';
 	console.table(character);
 };
-
-// SO I ENDED UP DOING THE ABOVE SECOND METHOD TO MAKE IT CLEANER AND EASIER TO READ AND ALSO GET RID OF BUG FROM FIRST ONE ... BUT HONESTLY I THINK IT TURNED OUT MROE COMPLICATED LMAO
-// I GUESS THE ABOVE METHOD HAPPENS WHEN YOU TAKE ON THE CHALLENGE OF MAKING ONE FUNCTION WORK FOR ALL THE BUTTONS INSTEAD OF SEPARATING THEM (I was trying to not repeat code on a bunch of different functions)
-// I'm not sure what's better ... one big function for all buttons(almost) or a seperate function for each button ? I guess it would depend on scalability factor ? I mostly did one big function for all as they do the
-// save for the gender button. I would definitely do a different function for other buttons
-
-// Added a way to change the hue and breightness but when changing them together on same object it only changes the original color ... have to build a way to hold both values together on the character
