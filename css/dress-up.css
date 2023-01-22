@@ -13,20 +13,17 @@ body {
   background-color: antiquewhite;
   width: 100%;
   height: 100%;
-  display: -ms-grid;
   display: grid;
   place-items: center;
 }
 
 .game-container {
   position: absolute;
-  background-color: #c3aa8c;
+  background-color: rgb(195, 170, 140);
   width: 700px;
   height: 500px;
-  display: -ms-grid;
   display: grid;
-  -webkit-box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.7);
-          box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.7);
+  box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.7);
 }
 
 #game-bg {
@@ -37,7 +34,11 @@ body {
 }
 
 /* Button Styles */
-#next-base, #next-hair, #next-top, #next-bottom, #next-shoe {
+#next-base,
+#next-hair,
+#next-top,
+#next-bottom,
+#next-shoe {
   position: relative;
   left: 7em;
   width: 6em;
@@ -51,16 +52,19 @@ body {
   background-repeat: no-repeat;
   border: 0;
   border-radius: 25%;
-  border: 1px solid #0e2e73;
-  -webkit-box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
-          box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+  border: 1px solid rgb(14, 46, 115);
+  box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
 }
 
-#prev-base, #prev-hair, #prev-top, #prev-bottom, #prev-shoe {
+#prev-base,
+#prev-hair,
+#prev-top,
+#prev-bottom,
+#prev-shoe {
   position: relative;
   width: 6em;
   height: 25px;
-  padding: 0  0.7em 0 2em;
+  padding: 0 0.7em 0 2em;
   text-align: right;
   color: white;
   background: url("../img/test/prev-btn.png");
@@ -69,15 +73,22 @@ body {
   background-repeat: no-repeat;
   border: 0;
   border-radius: 25%;
-  border: 1px solid #0e2e73;
-  -webkit-box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
-          box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
+  border: 1px solid rgb(14, 46, 115);
+  box-shadow: 3px 3px 5px rgba(55, 55, 55, 0.7);
 }
 
 /* When hovering over the buttons! */
-#next-base:hover, #prev-base:hover, #next-hair:hover, #prev-hair:hover, #next-top:hover, #prev-top:hover, #next-bottom:hover, #prev-bottom:hover, #next-shoe:hover, #prev-shoe:hover {
-  -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
-          box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+#next-base:hover,
+#prev-base:hover,
+#next-hair:hover,
+#prev-hair:hover,
+#next-top:hover,
+#prev-top:hover,
+#next-bottom:hover,
+#prev-bottom:hover,
+#next-shoe:hover,
+#prev-shoe:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
 }
 
 /* The clothes to overite the character */
@@ -126,27 +137,19 @@ body {
 /* Button Position Set Up */
 form {
   position: absolute;
-  display: -ms-grid;
   display: grid;
   width: 100%;
   height: 100%;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: (1fr)[7];
-      grid-template-rows: repeat(7, 1fr);
-      grid-template-areas: "logo-left logo base-right" "base-left base base-right" "head-left head head-right" "top-left top top-right" "blank-left blank blank-right" "bottom-left bottom bottom-right" "feet-left feet feet-right";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas: "logo-left logo base-right" "base-left base base-right" "head-left head head-right" "top-left top top-right" "blank-left blank blank-right" "bottom-left bottom bottom-right" "feet-left feet feet-right";
 }
 
 /* Positions of the buttons on the grid */
 .color-section {
   font-size: 12px;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 3;
   grid-area: base-right;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
@@ -160,133 +163,88 @@ input[type=range] {
 }
 
 #next-base {
-  -ms-grid-row: 5;
-  -ms-grid-column: 3;
   grid-area: blank-right;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin-left: 2em;
+  align-self: center;
+  margin-left: 3em;
 }
 
 #next-hair {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
   grid-area: head-right;
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
-  margin-left: 2em;
+  align-self: end;
+  margin-left: 3em;
 }
 
 #next-top {
-  -ms-grid-row: 4;
-  -ms-grid-column: 3;
   grid-area: top-right;
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
-  margin-left: 2em;
+  align-self: end;
+  margin-left: 3em;
 }
 
 #next-bottom {
-  -ms-grid-row: 6;
-  -ms-grid-column: 3;
   grid-area: bottom-right;
-  margin-left: 2em;
+  margin-left: 3em;
 }
 
 #next-shoe {
-  -ms-grid-row: 7;
-  -ms-grid-column: 3;
   grid-area: feet-right;
-  margin-left: 2em;
+  margin-left: 3em;
 }
 
 #prev-base {
-  -ms-grid-row: 5;
-  -ms-grid-column: 3;
   grid-area: blank-right;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin-left: 2em;
 }
 
 #prev-hair {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
   grid-area: head-right;
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
+  align-self: end;
   margin-left: 2em;
 }
 
 #prev-top {
-  -ms-grid-row: 4;
-  -ms-grid-column: 3;
   grid-area: top-right;
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
+  align-self: end;
   margin-left: 2em;
 }
 
 #prev-bottom {
-  -ms-grid-row: 6;
-  -ms-grid-column: 3;
   grid-area: bottom-right;
   margin-left: 2em;
 }
 
 #prev-shoe {
-  -ms-grid-row: 7;
-  -ms-grid-column: 3;
   grid-area: feet-right;
   margin-left: 2em;
 }
 
 /* RADIO BUTTONS TO SELECT WHICH ITEM TO COLOR */
 #base-color {
-  -ms-grid-row: 5;
-  -ms-grid-column: 3;
   grid-area: blank-right;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin-left: .35em;
+  align-self: center;
+  margin: 0.35em 0 0 0.5em;
 }
 
 #hair-color {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
   grid-area: head-right;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  margin: 0 0 .35em .5em;
+  align-self: flex-end;
+  margin: 0 0 0.35em 0.5em;
 }
 
 #top-color {
-  -ms-grid-row: 4;
-  -ms-grid-column: 3;
   grid-area: top-right;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  margin: 0 0 .35em .5em;
+  align-self: flex-end;
+  margin: 0 0 0.35em 0.5em;
 }
 
 #bottom-color {
-  -ms-grid-row: 6;
-  -ms-grid-column: 3;
   grid-area: bottom-right;
-  margin: .35em 0 0 .5em;
+  align-self: flex-start;
+  margin: 0.35em 0 0 0.5em;
 }
 
 #shoes-color {
-  -ms-grid-row: 7;
-  -ms-grid-column: 3;
   grid-area: feet-right;
-  margin: .35em 0 0 .5em;
-}
-/*# sourceMappingURL=dress-up.css.map */
+  align-self: flex-start;
+  margin: 0.35em 0 0 0.5em;
+}/*# sourceMappingURL=dress-up.css.map */
